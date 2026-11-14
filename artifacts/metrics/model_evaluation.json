@@ -1,0 +1,15 @@
+{
+    "accuracy": 0.91,
+    "precision": 0.9123553421726254,
+    "recall": 0.91,
+    "f1_score": 0.9107869296426386,
+    "total_test_samples": 2000,
+    "emotion_classes": [
+        "sadness",
+        "joy",
+        "love",
+        "anger",
+        "fear",
+        "surprise"
+    ]
+}

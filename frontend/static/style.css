@@ -1,0 +1,276 @@
+
+/* ==========================================
+   PART 1: GENERAL PAGE STYLING
+========================================== */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #e0e7ff, #f1f5f9);
+    color: #1e293b;
+    min-height: 100vh;
+    padding: 35px 15px;
+}
+
+
+/* ==========================================
+   PART 2: MAIN CONTAINER
+========================================== */
+
+.container {
+    max-width: 750px;
+    margin: auto;
+    padding: 35px;
+    background: #ffffff;
+    border-radius: 16px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+}
+
+
+/* ==========================================
+   PART 3: HEADER
+========================================== */
+
+header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+header h1 {
+    color: #2563eb;
+    font-size: 30px;
+    margin-bottom: 12px;
+}
+
+.subtitle {
+    color: #64748b;
+    font-size: 15px;
+    line-height: 1.5;
+}
+
+
+/* ==========================================
+   PART 4: INPUT SECTION
+========================================== */
+
+.input-section {
+    margin-bottom: 25px;
+}
+
+label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 12px;
+}
+
+textarea {
+    width: 100%;
+    height: 130px;
+    padding: 15px;
+    border: 1px solid #cbd5e1;
+    border-radius: 9px;
+    font-size: 16px;
+    font-family: Arial, sans-serif;
+    resize: vertical;
+    outline: none;
+    transition: border 0.3s;
+}
+
+textarea:focus {
+    border-color: #2563eb;
+}
+
+.character-info {
+    text-align: right;
+    margin-top: 7px;
+    color: #64748b;
+    font-size: 12px;
+}
+
+
+/* ==========================================
+   PART 5: DETECT BUTTON
+========================================== */
+
+button {
+    width: 100%;
+    padding: 14px;
+    margin-top: 16px;
+    background: #2563eb;
+    color: white;
+    border: none;
+    border-radius: 9px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+button:hover {
+    background: #1d4ed8;
+}
+
+
+/* ==========================================
+   PART 6: ERROR MESSAGE
+========================================== */
+
+.error {
+    margin-top: 20px;
+    padding: 15px;
+    background: #fee2e2;
+    color: #991b1b;
+    border-radius: 8px;
+    border-left: 4px solid #dc2626;
+}
+
+
+/* ==========================================
+   PART 7: RESULT SECTION
+========================================== */
+
+.result-section {
+    margin-top: 30px;
+}
+
+.result-section h2 {
+    margin-bottom: 18px;
+    color: #1e293b;
+}
+
+.result-card {
+    padding: 22px;
+    background: #eff6ff;
+    border-radius: 12px;
+    border: 1px solid #dbeafe;
+}
+
+.input-result {
+    line-height: 1.6;
+    overflow-wrap: anywhere;
+}
+
+.prediction {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.prediction p {
+    color: #64748b;
+    margin-bottom: 8px;
+}
+
+.emotion {
+    font-size: 30px;
+    color: #2563eb;
+    text-transform: capitalize;
+}
+
+
+/* ==========================================
+   PART 8: CONFIDENCE SCORE
+========================================== */
+
+.confidence {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 22px;
+    padding-top: 15px;
+    border-top: 1px solid #bfdbfe;
+    font-size: 16px;
+}
+
+.confidence strong {
+    color: #2563eb;
+    font-size: 20px;
+}
+
+
+/* ==========================================
+   PART 9: EMOTION PROBABILITY
+========================================== */
+
+.probability-section {
+    margin-top: 28px;
+}
+
+.probability-section h3 {
+    margin-bottom: 20px;
+}
+
+.score-row {
+    margin-bottom: 17px;
+}
+
+.score-label {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 7px;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.bar-background {
+    width: 100%;
+    height: 13px;
+    background: #e2e8f0;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.bar {
+    height: 100%;
+    background: linear-gradient(90deg, #2563eb, #60a5fa);
+    border-radius: 10px;
+    transition: width 0.5s ease;
+}
+
+
+/* ==========================================
+   PART 10: FOOTER
+========================================== */
+
+footer {
+    margin-top: 35px;
+    padding-top: 20px;
+    border-top: 1px solid #e2e8f0;
+    text-align: center;
+    color: #64748b;
+    font-size: 13px;
+    line-height: 1.8;
+}
+
+
+/* ==========================================
+   PART 11: RESPONSIVE DESIGN
+========================================== */
+
+@media (max-width: 600px) {
+
+    body {
+        padding: 15px 10px;
+    }
+
+    .container {
+        padding: 22px 16px;
+    }
+
+    header h1 {
+        font-size: 24px;
+    }
+
+    .emotion {
+        font-size: 25px;
+    }
+
+    .confidence {
+        font-size: 14px;
+    }
+
+}

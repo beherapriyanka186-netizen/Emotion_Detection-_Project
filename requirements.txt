@@ -1,0 +1,32 @@
+
+# Deep Learning
+tensorflow
+keras
+
+# Data Processing
+numpy
+pandas
+
+# NLP
+nltk
+
+# Machine Learning
+scikit-learn
+
+# Data Visualization
+matplotlib
+seaborn
+
+# Dataset Management
+datasets
+
+# Backend Development
+flask
+
+# Utilities
+joblib
+pyyaml
+python-dotenv
+
+# Testing
+pytest

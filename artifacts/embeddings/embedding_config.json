@@ -1,0 +1,6 @@
+{
+    "input_dim": 10000,
+    "output_dim": 128,
+    "input_length": 100,
+    "mask_zero": true
+}

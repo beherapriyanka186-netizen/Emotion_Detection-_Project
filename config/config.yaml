@@ -1,0 +1,132 @@
+
+# ==========================================
+# EMOTION DETECTION PROJECT CONFIGURATION
+# ==========================================
+
+project:
+  name: "Emotion Detection Using NLP and Deep Learning"
+  version: "1.0.0"
+  description: "Text emotion classification using LSTM"
+
+# ==========================================
+# DATASET CONFIGURATION
+# ==========================================
+
+data:
+  dataset_name: "dair-ai/emotion"
+
+  raw_dir: "data/raw"
+  processed_dir: "data/processed"
+
+  train_file: "data/raw/train.csv"
+  validation_file: "data/raw/validation.csv"
+  test_file: "data/raw/test.csv"
+
+  text_column: "text"
+  label_column: "label"
+
+  test_size: 0.20
+  random_state: 42
+
+# ==========================================
+# EMOTION LABELS
+# ==========================================
+
+labels:
+  classes:
+    - sadness
+    - joy
+    - love
+    - anger
+    - fear
+    - surprise
+
+  num_classes: 6
+
+# ==========================================
+# TEXT PREPROCESSING
+# ==========================================
+
+preprocessing:
+  lowercase: true
+  remove_urls: true
+  remove_html: true
+  remove_extra_spaces: true
+  remove_special_characters: false
+
+  max_words: 10000
+  max_sequence_length: 100
+  padding_type: "post"
+  truncating_type: "post"
+  oov_token: "<OOV>"
+
+# ==========================================
+# MODEL CONFIGURATION
+# ==========================================
+
+model:
+  architecture: "LSTM"
+
+  embedding_dim: 128
+  lstm_units: 64
+  dense_units: 32
+  dropout_rate: 0.5
+
+  activation: "softmax"
+  loss: "sparse_categorical_crossentropy"
+  optimizer: "adam"
+
+# ==========================================
+# TRAINING CONFIGURATION
+# ==========================================
+
+training:
+  epochs: 15
+  batch_size: 32
+  learning_rate: 0.001
+
+  early_stopping:
+    monitor: "val_loss"
+    patience: 3
+    restore_best_weights: true
+
+# ==========================================
+# MODEL ARTIFACTS
+# ==========================================
+
+artifacts:
+  model_dir: "artifacts/models"
+  tokenizer_dir: "artifacts/tokenizer"
+  encoder_dir: "artifacts/encoders"
+  metrics_dir: "artifacts/metrics"
+
+  model_file: "emotion_lstm.keras"
+  tokenizer_file: "tokenizer.pkl"
+  encoder_file: "label_encoder.pkl"
+
+# ==========================================
+# REPORTS AND VISUALIZATION
+# ==========================================
+
+reports:
+  output_dir: "reports"
+  figures_dir: "reports/figures"
+
+# ==========================================
+# APPLICATION CONFIGURATION
+# ==========================================
+
+application:
+  host: "127.0.0.1"
+  port: 5000
+  debug: false
+  max_text_length: 1000
+
+# ==========================================
+# LOGGING CONFIGURATION
+# ==========================================
+
+logging:
+  level: "INFO"
+  log_dir: "logs"
+  log_file: "emotion_detection.log"

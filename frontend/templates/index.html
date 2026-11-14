@@ -1,0 +1,191 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Emotion Detection System</title>
+
+    <!-- Connect external CSS file -->
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+<body>
+
+    <div class="container">
+
+        <!-- =================================
+             HEADER
+        ================================== -->
+
+        <header>
+
+            <h1>Emotion Detection System</h1>
+
+            <p class="subtitle">
+                Emotion Classification Using NLP and Deep Learning
+            </p>
+
+        </header>
+
+
+        <!-- =================================
+             INPUT FORM
+        ================================== -->
+
+        <section class="input-section">
+
+            <form method="POST" action="/">
+
+                <label for="text">
+                    Enter your sentence:
+                </label>
+
+                <textarea
+                    name="text"
+                    id="text"
+                    maxlength="{{ max_length }}"
+                    placeholder="Example: I am feeling very happy today."
+                    required>{{ input_text }}</textarea>
+
+                <div class="character-info">
+                    Maximum {{ max_length }} characters
+                </div>
+
+                <button type="submit">
+                    Detect Emotion
+                </button>
+
+            </form>
+
+        </section>
+
+
+        <!-- =================================
+             ERROR MESSAGE
+        ================================== -->
+
+        {% if error %}
+
+        <div class="error">
+
+            <strong>Error:</strong>
+
+            {{ error }}
+
+        </div>
+
+        {% endif %}
+
+
+        <!-- =================================
+             PREDICTION RESULT
+        ================================== -->
+
+        {% if result %}
+
+        <section class="result-section">
+
+            <h2>Prediction Result</h2>
+
+            <div class="result-card">
+
+                <p class="input-result">
+                    <strong>Input Text:</strong>
+                    {{ result.input_text }}
+                </p>
+
+                <div class="prediction">
+
+                    <p>Predicted Emotion</p>
+
+                    <h2 class="emotion">
+                        {{ result.predicted_emotion }}
+                    </h2>
+
+                </div>
+
+                <div class="confidence">
+
+                    <span>Confidence Score</span>
+
+                    <strong>
+                        {{ result.confidence }}%
+                    </strong>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================
+                 EMOTION PROBABILITY
+            ================================== -->
+
+            <div class="probability-section">
+
+                <h3>Emotion Probability</h3>
+
+                {% for emotion, score in result.emotion_scores.items() %}
+
+                <div class="score-row">
+
+                    <div class="score-label">
+
+                        <span>
+                            {{ emotion.capitalize() }}
+                        </span>
+
+                        <span>
+                            {{ score }}%
+                        </span>
+
+                    </div>
+
+                    <div class="bar-background">
+
+                        <div class="bar"
+                             style="width: {{ score }}%;">
+                        </div>
+
+                    </div>
+
+                </div>
+
+                {% endfor %}
+
+            </div>
+
+        </section>
+
+        {% endif %}
+
+
+        <!-- =================================
+             FOOTER
+        ================================== -->
+
+        <footer>
+
+            <p>
+                MSc Data Science Project
+            </p>
+
+            <p>
+                Emotion Detection Using NLP and Deep Learning
+            </p>
+
+        </footer>
+
+    </div>
+
+</body>
+
+</html>
